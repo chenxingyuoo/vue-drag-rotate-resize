@@ -6,12 +6,12 @@
 
 ## 安装
 ```
-npm install @yu/vue-drag-rotate-resize
+npm install @chenxingyu_o/vue-drag-rotate-resize
 ```
 
 ## 注册组件
 ```js
-import VueDragRotateResize from '@yu/vue-drag-rotate-resize'
+import VueDragRotateResize from '@chenxingyu_o/vue-drag-rotate-resize'
 Vue.use(VueDragRotateResize)
 ```
 ## 使用组件

@@ -1,5 +1,5 @@
 {
-  "name": "@yu/vue-drag-rotate-resize",
+  "name": "@chenxingyu_o/vue-drag-rotate-resize",
   "version": "0.1.0",
   "author": "chenxignyuoo",
   "description": "a vue2 component. drag-rotate-resize",
@@ -14,6 +14,15 @@
   "files": [
     "lib",
     "src"
+  ],
+  "keywords": [
+    "vue",
+    "drag",
+    "resize",
+    "rotate",
+    "draggable",
+    "resizable",
+    "rotateable"
   ],
   "repository": {
     "type": "git",
