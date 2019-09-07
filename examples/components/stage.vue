@@ -26,7 +26,9 @@
         :onResizeStart="handleResizeStart"
         :onResize="handleResize"
         :onResizeEnd="hanlderResizeEnd"
+        :onRotateStart="handleRotateStart"
         :onRotate="handleRotate"
+        :onRotateEnd="handleRotateEnd"
       >
       <template slot="rotate">
         <div class="rotate-btn"></div>
@@ -46,6 +48,7 @@ import btn from '../assets/btn.png'
 export default {
   data () {
     return {
+      isDraging: false,
       resizeObject: {},
       activeElement: null,
       activedElements: [],
@@ -81,6 +84,10 @@ export default {
   },
   created () {
     document.addEventListener('click', (e) => {
+      if (this.getDraging()) {
+        return
+      }
+
       if (!e.target.closest('#stage-box')) {
         this.hideEdit()
       }
@@ -89,6 +96,17 @@ export default {
   methods: {
     hideEdit () {
       this.resizeObject = {}
+    },
+    setDraging () {
+      this.isDraging = true
+    },
+    cancelDraging () {
+      setTimeout(() => {
+        this.isDraging = false
+      }, 10)
+    },
+    getDraging () {
+      return this.isDraging
     },
     getRect () {
       let object = {
@@ -135,7 +153,7 @@ export default {
       }
     },
     handleDragStart () {
-
+      this.setDraging()
     },
     handleDrag (e, deltaX, deltaY) {
       this.resizeObject.x += deltaX
@@ -147,9 +165,10 @@ export default {
       })
     },
     handleDragEnd () {
-
+      this.cancelDraging()
     },
     handleResizeStart () {
+      this.setDraging()
       this.oldResizeObject = cloneDeep(this.resizeObject)
       this.oldActivedElements = cloneDeep(this.activedElements)
     },
@@ -193,16 +212,23 @@ export default {
       Object.assign(this.resizeObject, options)
     },
     hanlderResizeEnd () {
-      const rect = this.getRect()
-
-      this.resizeObject = rect
+      this.cancelDraging()
+      if (this.isMultiple) {
+        const rect = this.getRect()
+        Object.assign(this.resizeObject, rect)
+      }
     },
-
+    handleRotateStart () {
+      this.setDraging()
+    },
     handleRotate (e, rotateAngle) {
       this.resizeObject.rotate = rotateAngle
       this.activedElements.map((element, index) => {
         element.rotate = rotateAngle
       })
+    },
+    handleRotateEnd () {
+      this.cancelDraging()
     }
   }
 }
