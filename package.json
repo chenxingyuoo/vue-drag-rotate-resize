@@ -1,12 +1,13 @@
 {
-  "name": "vue-drag-rotate-resize",
+  "name": "@yu/vue-drag-rotate-resize",
   "version": "0.1.0",
+  "author": "chenxignyuoo",
   "description": "a vue2 component. drag-rotate-resize",
   "main": "lib/vue-drag-rotate-resize.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build ./src/index.js --dest lib --target lib --name vue-drag-rotate-resize",
-    "build:examples": "vue-cli-service build",
+    "build-demo": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -14,6 +15,10 @@
     "lib",
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenxingyuoo/vue-drag-rotate-resize.git"
+  },
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
@@ -86,5 +91,6 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
-  }
+  },
+  "license": "MIT"
 }
