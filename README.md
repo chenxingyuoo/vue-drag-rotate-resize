@@ -10,10 +10,12 @@ npm install @chenxingyu_o/vue-drag-rotate-resize
 ```
 
 ## 注册组件
-```js
+```javescript
 import VueDragRotateResize from '@chenxingyu_o/vue-drag-rotate-resize'
+import '@chenxingyu_o/vue-drag-rotate-resize/lib/vue-drag-rotate-resize.css'
 Vue.use(VueDragRotateResize)
 ```
+
 ## 使用组件
 ```vue
 <template>
@@ -40,7 +42,7 @@ Vue.use(VueDragRotateResize)
 </template>
 
 <script>
-  import VueDragRotateResize from '@yu/vue-drag-rotate-resize'
+  import VueDragRotateResize from '@chenxingyu_o/vue-drag-rotate-resize'
   export default {
     data() {
       return {
