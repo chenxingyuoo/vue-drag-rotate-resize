@@ -29,9 +29,15 @@ Vue.use(VueDragRotateResize)
       :height="resizeObject.height || 0"
       :rotateAngle="resizeObject.rotate || 0"
       :rotatable="true"
+      :onDragStart="()=>{}"
       :onDrag="handleDrag"
+      :onDragEnd="()=>{}"
+      :onResizeStart="()=>{}"
       :onResize="handleResize"
+      :onResizeEnd="()=>{}"
+      :onRotateStart="()=>{}"
       :onRotate="handleRotate"
+      :onRotateEnd="()=>{}"
     >
       <div>content</div>
       <template slot="rotate">
